@@ -37,33 +37,42 @@ public class Utils {
             for(Ship existShip: existShips){
                 for (Coordinate existCoordinate: existShip.coordinatesOfShip) {
 
-                    if (coordinate.y == existCoordinate.y && coordinate.x == existCoordinate.x) {
-                        return false;
+                    int[] dx = {-1, 0, 1, 0, -1, -1, 1, 1, 0};
+                    int[] dy = {0, 1, 0, -1, -1, 1, -1, 1, 0};
+
+                    for (int i = 0; i < dx.length; i++) {
+                        if(coordinate.y == (existCoordinate.y + dx[i]) && coordinate.x == (existCoordinate.x + dy[i])){
+                            return false;
+                        }
                     }
-                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x) {
-                        return false;
-                    }
-                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x) {
-                        return false;
-                    }
-                    if (coordinate.x == existCoordinate.x + 1 && coordinate.y == existCoordinate.y) {
-                        return false;
-                    }
-                    if (coordinate.x == existCoordinate.x - 1 && coordinate.y == existCoordinate.y) {
-                        return false;
-                    }
-                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x + 1) {
-                        return false;
-                    }
-                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x - 1) {
-                        return false;
-                    }
-                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x - 1) {
-                        return false;
-                    }
-                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x + 1) {
-                        return false;
-                    }
+
+//                    if (coordinate.y == existCoordinate.y && coordinate.x == existCoordinate.x) {
+//                        return false;
+//                    }
+//                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x) {
+//                        return false;
+//                    }
+//                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x) {
+//                        return false;
+//                    }
+//                    if (coordinate.x == existCoordinate.x + 1 && coordinate.y == existCoordinate.y) {
+//                        return false;
+//                    }
+//                    if (coordinate.x == existCoordinate.x - 1 && coordinate.y == existCoordinate.y) {
+//                        return false;
+//                    }
+//                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x + 1) {
+//                        return false;
+//                    }
+//                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x - 1) {
+//                        return false;
+//                    }
+//                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x - 1) {
+//                        return false;
+//                    }
+//                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x + 1) {
+//                        return false;
+//                    }
                 }
             }
         }
