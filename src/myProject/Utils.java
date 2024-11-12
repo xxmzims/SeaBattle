@@ -45,34 +45,6 @@ public class Utils {
                             return false;
                         }
                     }
-
-//                    if (coordinate.y == existCoordinate.y && coordinate.x == existCoordinate.x) {
-//                        return false;
-//                    }
-//                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x) {
-//                        return false;
-//                    }
-//                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x) {
-//                        return false;
-//                    }
-//                    if (coordinate.x == existCoordinate.x + 1 && coordinate.y == existCoordinate.y) {
-//                        return false;
-//                    }
-//                    if (coordinate.x == existCoordinate.x - 1 && coordinate.y == existCoordinate.y) {
-//                        return false;
-//                    }
-//                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x + 1) {
-//                        return false;
-//                    }
-//                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x - 1) {
-//                        return false;
-//                    }
-//                    if (coordinate.y == existCoordinate.y + 1 && coordinate.x == existCoordinate.x - 1) {
-//                        return false;
-//                    }
-//                    if (coordinate.y == existCoordinate.y - 1 && coordinate.x == existCoordinate.x + 1) {
-//                        return false;
-//                    }
                 }
             }
         }
