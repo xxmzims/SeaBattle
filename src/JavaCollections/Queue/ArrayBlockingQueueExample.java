@@ -1,7 +1,7 @@
 package JavaCollections.Queue;
 
-import java.util.concurrent.ArrayBlockingQueue; // Импортируем ArrayBlockingQueue
-import java.util.concurrent.BlockingQueue;      // Импортируем интерфейс BlockingQueue
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 
 /* ArrayBlockingQueue — это класс в Java, который реализует интерфейс BlockingQueue.

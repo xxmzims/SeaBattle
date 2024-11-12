@@ -16,7 +16,7 @@ public class Player {
         return name;
     }
 
-    public Player(String name) throws Exception{
+    public Player(String name) throws Exception {
         this.name = name;
         initBoard();
         shipPlacement.placeShips();

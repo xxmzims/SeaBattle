@@ -1,7 +1,7 @@
 package JavaCollections.Set;
 
-import java.util.HashSet; // Импортируем HashSet
-import java.util.Set;     // Импортируем интерфейс Set
+import java.util.HashSet;
+import java.util.Set;
 
 public class SetExample {
     public static void main(String[] args) {

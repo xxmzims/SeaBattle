@@ -32,9 +32,10 @@ public class WaitNotify {
         thread2.join();
     }
 }
-class WaitAndNotify{
+
+class WaitAndNotify {
     public void produce() throws InterruptedException {
-        synchronized (this){
+        synchronized (this) {
             System.out.println("Produce Thread started...");
             wait(); // отдаем intrinsic lock(монитор) объекта this.
             // lock.wait() отдаем объект lock
@@ -47,10 +48,11 @@ class WaitAndNotify{
             System.out.println("Produce Thread resumed...");
         }
     }
+
     public void consumer() throws InterruptedException {
         Thread.sleep(2000);
         Scanner scanner = new Scanner(System.in);
-        synchronized (this){
+        synchronized (this) {
             System.out.println("Waiting for return ley pressed");
             scanner.nextLine();
             notify(); // все потоки которые ждут будут восстановлены

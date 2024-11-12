@@ -3,28 +3,34 @@ package JavaCollections.List;
 public class myLinkedList<E> {
     private Node<E> head;
     private int size = 0;
+
     // возвращаем размер списка
     public int getSize() {
         return size;
     }
+
     // Узел представляет вложенный класс Node. Node next хранит ссылку на следующий узел, val это значение текущего узла
-    private static class Node<E>{
+    private static class Node<E> {
         private Node<E> next;
         private E val;
+
         Node(E val) {
             this.val = val;
         }
-        Node() {}
+
+        Node() {
+        }
     }
+
     // добавление элемента в конец
-    public void add(E val){
+    public void add(E val) {
         // если первое добавление, создаем голову, создаем первый элемент, передаем ссылку на первый элемент в head.next
-        if (head == null){
+        if (head == null) {
             head = new Node<>(val);
-        }else{
+        } else {
             // если нет, то создаем переменную temp для перехода по узлам, доходим до последнего и создаем новый узел
             Node<E> temp = head;
-            while(temp.next != null){
+            while (temp.next != null) {
                 temp = temp.next;
             }
             temp.next = new Node<>(val);
@@ -32,7 +38,8 @@ public class myLinkedList<E> {
         //  инкриминируем размер на 1
         size++;
     } // получения элемента по индексу
-    public E get(int index){
+
+    public E get(int index) {
         // проверка на выход за пределы массива
         checkOutOfBound(index);
         // создаем временную переменную для обхода по узлам
@@ -43,7 +50,8 @@ public class myLinkedList<E> {
         }
         return temp.val;
     }
-    public void remove(int index){
+
+    public void remove(int index) {
         // проверка на выход за пределы массива
         checkOutOfBound(index);
         // создаем временную переменную для обхода по узлам
@@ -51,7 +59,7 @@ public class myLinkedList<E> {
         // если индекс равен нулю, то сразу передаем в head.next ссылку на
         // элемент, который находится следующим, тем самым "перепрыгиваем через узел"
         // и теперь head ссылается на узел, который находится после узла, который мы удаляем
-        if(index == 0){
+        if (index == 0) {
             head.next = head.next.next;
             size--;
             return;
@@ -66,8 +74,9 @@ public class myLinkedList<E> {
         temp.next = temp.next.next;
         size--;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         // создаем объект StringBuilder и добавляем "["
         StringBuilder stringRes = new StringBuilder();
         stringRes.append("[");
@@ -75,9 +84,9 @@ public class myLinkedList<E> {
         Node<E> temp = head;
         for (int i = 0; i < size; i++) {
             // если узел последний, то не добавляем в конец запятую с пробелом
-            if (i == size - 1){
+            if (i == size - 1) {
                 stringRes.append(temp.val);
-            }else
+            } else
                 // все остальные элементы добавляются через запятую с пробелом
                 stringRes.append(temp.val).append(", ");
             temp = temp.next;
@@ -86,9 +95,10 @@ public class myLinkedList<E> {
         stringRes.append("]");
         return stringRes.toString();
     }
-    private void checkOutOfBound(int index){
+
+    private void checkOutOfBound(int index) {
         // если индекс больше размера списка, то выбрасываем исключение
-        if(index >= size){
+        if (index >= size) {
             throw new IndexOutOfBoundsException();
         }
     }

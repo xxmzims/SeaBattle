@@ -1,7 +1,8 @@
 package JavaCollections.Queue;
 
-import java.util.LinkedList; // Импортируем LinkedList для реализации интерфейса Queue
-import java.util.Queue;       // Импортируем интерфейс Queue
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*Класс Queue в Java представляет собой интерфейс, который определяет структуру данных для хранения
  и обработки элементов в порядке их добавления, следуя принципу "первый пришел — первый вышел"
   (FIFO — First In, First Out).

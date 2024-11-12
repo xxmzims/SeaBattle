@@ -3,7 +3,7 @@ package ReflectionAPI;
 import java.util.Arrays;
 
 public class CodeAnalyzerWithReflection {
-    public static void analyzeClass(Object o){
+    public static void analyzeClass(Object o) {
 
         //Вывести название класса, к которому принадлежит объект о
         //Вывести названия всех полей этого класса

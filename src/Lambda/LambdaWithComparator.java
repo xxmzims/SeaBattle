@@ -12,7 +12,7 @@ public class LambdaWithComparator {
         list.add("k");
 
         // вместо компаратора можем использовать лямбда-выражение
-        list.sort((x,y) -> x.length() - y.length());
+        list.sort((x, y) -> x.length() - y.length());
         System.out.println(list);
     }
 }

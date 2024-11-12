@@ -21,8 +21,7 @@ public class ThreadTraining {
 
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
-                }
-                finally {
+                } finally {
                     semaphore.release();
                 }
             });

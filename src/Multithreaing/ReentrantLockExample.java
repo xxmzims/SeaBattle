@@ -5,6 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockExample {
     static Task task = new Task(); // Создаем общий объект Task для двух потоков
+
     public static void main(String[] args) throws InterruptedException {
         // Создание первого потока
         Thread thread1 = new Thread(new Runnable() {

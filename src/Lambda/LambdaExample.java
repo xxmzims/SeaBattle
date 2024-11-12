@@ -5,7 +5,7 @@ interface Executable {
 }
 
 class Runner {
-    public void run(Executable e){
+    public void run(Executable e) {
         int a = e.execute(10, 5);
         System.out.println(a);
     }

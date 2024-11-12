@@ -1,7 +1,7 @@
 package Multithreaing;
 // Многопоточность очень важная тема, позволяет распределить задачи между потоками. Каждый поток будет выполнять разные задания
 
-public class MyThreadExample{
+public class MyThreadExample {
     public static void main(String[] args) {
         // Создание потоков
         MyThread myThread = new MyThread();
@@ -23,7 +23,7 @@ public class MyThreadExample{
 }
 // класс унаследованный от Thread является потоком
 
-class MyThread extends Thread{
+class MyThread extends Thread {
     // в методе run выполняется код при запуске потока
     @Override
     public void run() {
@@ -38,7 +38,8 @@ class MyThread extends Thread{
         }
     }
 }
-class MyThreadSecond extends Thread{
+
+class MyThreadSecond extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 1000; i++) {
@@ -46,8 +47,9 @@ class MyThreadSecond extends Thread{
         }
     }
 }
+
 // Другой способ создать поток, реализуя метод Runnable
-class Runner implements Runnable{
+class Runner implements Runnable {
     @Override
     public void run() {
         for (int i = 1000; i < 1500; i++) {

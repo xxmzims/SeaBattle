@@ -12,6 +12,7 @@ package Multithreaing;
 
 public class SynchronizedThread {
     public static int counter;
+
     public static void main(String[] args) throws InterruptedException {
         MyThreadSync myThreadSync = new MyThreadSync();
         myThreadSync.start();
@@ -23,31 +24,36 @@ public class SynchronizedThread {
 
         System.out.println(counter);
     }
+
     // пример синхронизации метода.
     // Пока один поток использует метод, в сигнатуре которого указано ключевое слово synchronized,
     // другие потоки не смогут получить доступ, что обеспечивает синхронизацию.
-    public static synchronized void increment(){
+    public static synchronized void increment() {
         SynchronizedThread.counter++;
     }
-    public void decrement(){
+
+    public void decrement() {
         // пример синхронизации блока, использует монитор, указанного объекта в скобках.
-        synchronized (this){
+        synchronized (this) {
             SynchronizedThread.counter--;
         }
     }
 }
-class MyThreadSync extends Thread{
+
+class MyThreadSync extends Thread {
     // Ключевое слово volatile используется для того, чтобы гарантировать когерентность кэшей.
     // То есть, переменная помеченная этим ключевым словом не будет кэшироваться для ядра, в котором работает этот поток.
     // Переменная будет всегда доступна для чтения другим потокам и она всегда будет одинаковая для всех потоков.
     private volatile boolean running = true;
+
     @Override
     public void run() {
-        for(int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             SynchronizedThread.increment();
         }
     }
-    public void shutdown(){
+
+    public void shutdown() {
         this.running = false;
     }
 }

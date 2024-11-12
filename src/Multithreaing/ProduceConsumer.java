@@ -16,6 +16,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class ProduceConsumer {
     private static BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(10);
+
     public static void main(String[] args) throws InterruptedException {
         // создание фиксированной очереди
         Thread thread1 = new Thread(new Runnable() {
@@ -45,19 +46,20 @@ public class ProduceConsumer {
         thread2.join();
     }
 
-    private static void produce() throws InterruptedException{
+    private static void produce() throws InterruptedException {
         Random random = new Random();
 
-        while (true){
+        while (true) {
             // добавление случайного числа в очередь
             // put ждет пока место в очереди не освободиться
 
             blockingQueue.put(random.nextInt(100));
         }
     }
-    private static void consumer() throws InterruptedException{
+
+    private static void consumer() throws InterruptedException {
         Random random = new Random();
-        while (true){
+        while (true) {
             Thread.sleep(100);
             // достаем из очереди элемент
             System.out.println(blockingQueue.take());

@@ -1,15 +1,14 @@
 package Multithreaing;
 
-import java.util.Random; // Импорт библиотеки для генерации случайных чисел
-import java.util.concurrent.locks.ReentrantLock; // Импорт для блокировок (синхронизации) потоков
+import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class DeadLocks {
+    // Создаем один объект замка для синхронизации доступа к учетным записям
+    public static ReentrantLock lock = new ReentrantLock();
     // Создаем два объекта учетной записи для моделирования переводов
     static Account account1 = new Account();
     static Account account2 = new Account();
-
-    // Создаем один объект замка для синхронизации доступа к учетным записям
-    public static ReentrantLock lock = new ReentrantLock();
 
     public static void main(String[] args) throws InterruptedException {
         // Создаем потоки для выполнения переводов между аккаунтами
@@ -70,6 +69,12 @@ class TransferThread implements Runnable {
 class Account {
     private int balance = 10000; // Баланс аккаунта
 
+    // Статический метод для перевода средств между двумя аккаунтами
+    public static void transfer(Account acc1, Account acc2, int amount) {
+        acc1.withdraw(amount); // Снимаем средства с первого аккаунта
+        acc2.deposit(amount); // Вносим средства на второй аккаунт
+    }
+
     // Метод для внесения средств на аккаунт
     public void deposit(int amount) {
         balance += amount; // Увеличиваем баланс на указанную сумму
@@ -83,11 +88,5 @@ class Account {
     // Метод для снятия средств с аккаунта
     public void withdraw(int amount) {
         balance -= amount; // Уменьшаем баланс на указанную сумму
-    }
-
-    // Статический метод для перевода средств между двумя аккаунтами
-    public static void transfer(Account acc1, Account acc2, int amount) {
-        acc1.withdraw(amount); // Снимаем средства с первого аккаунта
-        acc2.deposit(amount); // Вносим средства на второй аккаунт
     }
 }

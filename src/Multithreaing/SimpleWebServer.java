@@ -1,8 +1,13 @@
 package Multithreaing; // Определение пакета для класса
 
-import java.io.*; // Импорт необходимых классов для работы с вводом/выводом
-import java.net.*; // Импорт классов для работы с сетевыми сокетами
-import java.util.concurrent.*; // Импорт классов для работы с многопоточностью
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class SimpleWebServer {
     private final ExecutorService executorService; // Используется для управления пулом потоков

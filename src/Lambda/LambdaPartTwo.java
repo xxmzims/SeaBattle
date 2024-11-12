@@ -35,7 +35,6 @@ public class LambdaPartTwo {
         arr = Arrays.stream(arr).map(a -> a + 1).toArray();
 
 
-
         System.out.println(list);
         System.out.println(Arrays.toString(arr));
 
@@ -53,7 +52,7 @@ public class LambdaPartTwo {
 
         // можно сократить до такого значения если используется один метод, который принимает один метод
         list2.stream().forEach(System.out::println);
-        System.out.println(Arrays.toString( arr2));
+        System.out.println(Arrays.toString(arr2));
         System.out.println(list2);
 
         // метод reduce уменьшает кол-во данных
@@ -68,11 +67,13 @@ public class LambdaPartTwo {
         int sum = Arrays.stream(arr3).reduce(1, (acc, b) -> acc * b);
         System.out.println(sum);
     }
-    public static void fillList(List<Integer> list){
+
+    public static void fillList(List<Integer> list) {
         for (int i = 0; i < 10; i++)
             list.add(i + 1);
     }
-    public static void fillArr(int[] arr){
+
+    public static void fillArr(int[] arr) {
         for (int i = 0; i < arr.length; i++)
             arr[i] = i + 1;
     }

@@ -15,7 +15,7 @@ public class TestReflection {
 
         Field[] fields = personClass.getDeclaredFields();
 
-        for (Field field: fields){
+        for (Field field : fields) {
             System.out.println(field.getName() + ", " + field.getType());
         }
     }

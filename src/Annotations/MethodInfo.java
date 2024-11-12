@@ -13,6 +13,7 @@ import java.lang.annotation.Target;
 public @interface MethodInfo {
     // можем использовать параметры для аннотации
     String author() default "Maks";
+
     int dateOfCreation() default 2019;
 
     // default указывает стандартный тип параметров

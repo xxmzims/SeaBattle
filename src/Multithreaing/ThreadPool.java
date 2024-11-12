@@ -4,8 +4,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class ThreadPool{
-    public static void main(String[] args) throws InterruptedException{
+public class ThreadPool {
+    public static void main(String[] args) throws InterruptedException {
         // Создание пула потоков
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         for (int i = 0; i < 5; i++) {
@@ -19,11 +19,14 @@ public class ThreadPool{
         executorService.awaitTermination(1, TimeUnit.DAYS);
     }
 }
-class Work implements Runnable{
+
+class Work implements Runnable {
     private int id;
-    public Work(int id){
+
+    public Work(int id) {
         this.id = id;
     }
+
     @Override
     public void run() {
         try {

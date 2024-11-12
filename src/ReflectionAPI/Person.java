@@ -9,11 +9,14 @@ public class Person {
     public void setId(int id) {
         this.id = id;
     }
-    public Person(String name, int id){
+
+    public Person(String name, int id) {
         this.id = id;
         this.name = name;
     }
-    public Person(){}
+
+    public Person() {
+    }
 
     public void setName(String name) {
         this.name = "dima";

@@ -28,7 +28,7 @@ public class ShipPlacement {
         System.out.println("Выберите способ расстановки кораблей:");
         System.out.println("1 - Расставить корабли вручную");
         System.out.println("2 - Автоматическая расстановка кораблей");
-        while (true){
+        while (true) {
             try {
                 int choice = Integer.parseInt(input.readLine());
                 if (choice == 1) {
@@ -38,9 +38,9 @@ public class ShipPlacement {
                     automaticPlacement();
                     break;
                 } else {
-                   throw new Exception();
+                    throw new Exception();
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Неккоректный ввод, попробуйте еще раз...");
             }
         }

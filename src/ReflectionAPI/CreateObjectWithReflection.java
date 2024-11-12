@@ -4,11 +4,11 @@ import java.lang.reflect.InvocationTargetException;
 
 public class CreateObjectWithReflection {
 
-    public static Person createPerson(){
+    public static Person createPerson() {
         Class clazz = null;
         Person person = null;
 
-        try{
+        try {
             // Считываем название класса
             clazz = Class.forName("ReflectionAPI.Person");
 
@@ -25,21 +25,21 @@ public class CreateObjectWithReflection {
 
             */
             // Если класса не существует
-        }catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
             // Если объект класса не может быть создан
-        }catch (InstantiationException e){
+        } catch (InstantiationException e) {
             e.printStackTrace();
             // Нет доступа к методу, классу, полю
-        }catch (IllegalAccessException e){
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
 
             // Не существует метода в классе.
-        }catch (NoSuchMethodException e){
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
 
             // Если во время вызова метода, возникло исключение
-        }catch (InvocationTargetException e){
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
         return person;

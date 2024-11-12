@@ -17,7 +17,6 @@ public class Ship {
     }
 
 
-
     public boolean isSunk() {
         return hitCount >= sizeOfShip;
     }

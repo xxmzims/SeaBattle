@@ -8,7 +8,7 @@ public class InterruptedExample {
             // Цикл, который будет выполняться 100 миллионов раз
             for (int i = 0; i < 100_000_000; i++) {
                 System.out.println(i);
-                if(Thread.currentThread().isInterrupted()){
+                if (Thread.currentThread().isInterrupted()) {
                     break;
                 }
                 // Поток засыпает на 100 миллисекунд

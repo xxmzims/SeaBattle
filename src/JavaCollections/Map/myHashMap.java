@@ -7,17 +7,18 @@ public class myHashMap<K, V> {
     private int THRESHOLD = 16;
     private Object[] array = new Object[THRESHOLD];
 
-    private static class Node<K, V>{
+    private static class Node<K, V> {
         int hash;
         K key;
         V value;
         Node<K, V> next;
 
-        private Node(int hash, K key, V value){
+        private Node(int hash, K key, V value) {
             this.hash = hash;
             this.key = key;
             this.value = value;
         }
+
         @Override
         public String toString() {
             return key + "=" + value;
@@ -34,21 +35,22 @@ public class myHashMap<K, V> {
                 stringBuilder.append(o).append(", ");
             }
         }
-        if(stringBuilder.length() > 2){
-        stringBuilder.setLength(stringBuilder.length() - 2);
+        if (stringBuilder.length() > 2) {
+            stringBuilder.setLength(stringBuilder.length() - 2);
         }
         stringBuilder.append("}");
         return stringBuilder.toString();
     }
-    public V get(K key){
+
+    public V get(K key) {
         int index = hash(key);
         Node<K, V> temp;
-        if(( temp = (Node<K, V>) array[index]) != null){
-            while (temp.hash != key.hashCode()){
+        if ((temp = (Node<K, V>) array[index]) != null) {
+            while (temp.hash != key.hashCode()) {
                 temp = temp.next;
             }
-            if(temp.hash == key.hashCode()){
-                if (temp.key.equals(key)){
+            if (temp.hash == key.hashCode()) {
+                if (temp.key.equals(key)) {
                     return temp.value;
                 }
             }
@@ -56,37 +58,40 @@ public class myHashMap<K, V> {
         return null;
 
     }
-    public void put(K key, V value){
+
+    public void put(K key, V value) {
         boolean notExistKey = true;
         int hash = key.hashCode();
         Node<K, V> node = new Node<>(hash, key, value);
         int index = hash(key);
-        if(array[index] == null){
+        if (array[index] == null) {
             array[index] = node;
-        }else{
-            Node<K, V> temp = (Node<K, V>)array[index];
-            while (temp.next != null){
-                if (temp.hash == node.hash){
+        } else {
+            Node<K, V> temp = (Node<K, V>) array[index];
+            while (temp.next != null) {
+                if (temp.hash == node.hash) {
                     notExistKey = false;
-                    if(!temp.key.equals( key)){
+                    if (!temp.key.equals(key)) {
                         node.next = (Node<K, V>) array[index];
                         array[index] = node;
-                    }else{
-                    temp.value = node.value;
+                    } else {
+                        temp.value = node.value;
                     }
                     break;
                 }
                 temp = temp.next;
             }
-            if(notExistKey){
+            if (notExistKey) {
                 temp.next = node;
             }
         }
     }
-   private void grow(){
-        THRESHOLD =  (int)(THRESHOLD * 1.5);
+
+    private void grow() {
+        THRESHOLD = (int) (THRESHOLD * 1.5);
         array = Arrays.copyOf(array, THRESHOLD);
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,7 +105,7 @@ public class myHashMap<K, V> {
         return Objects.hash(THRESHOLD, Arrays.hashCode(array));
     }
 
-    private int hash(Object key){
+    private int hash(Object key) {
         return key.hashCode() & (THRESHOLD - 1);
     }
 }

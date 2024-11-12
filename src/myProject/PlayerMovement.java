@@ -2,6 +2,7 @@ package myProject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
 public class PlayerMovement {
 
     public static void start(Player firstPlayer, Player secondPlayer) throws Exception {
@@ -29,17 +30,16 @@ public class PlayerMovement {
         Utils.printBoard(currentPlayer.board);
         System.out.println("Поле врага");
         Utils.printBoard(currentPlayer.enemyBoard);
-        while (true){
+        while (true) {
             if (isGameOver(opponent)) {
                 break;
             }
             Coordinate attackCoordinate = currentPlayer.doMove();
-        if(processAttack(attackCoordinate, currentPlayer, opponent)) {
-            System.out.println("Вы попали, ходите еще раз:\n ");
-            currentPlayer.updateView();
-            Utils.printBoard(currentPlayer.enemyBoard);
-        }
-        else break;
+            if (processAttack(attackCoordinate, currentPlayer, opponent)) {
+                System.out.println("Вы попали, ходите еще раз:\n ");
+                currentPlayer.updateView();
+                Utils.printBoard(currentPlayer.enemyBoard);
+            } else break;
         }
         System.out.println("К сожалению вы промазали");
         currentPlayer.updateView();
@@ -48,7 +48,7 @@ public class PlayerMovement {
         reader.readLine();
     }
 
-    public  static boolean processAttack(Coordinate coordinate, Player currentPlayer, Player opponentPlayer) {
+    public static boolean processAttack(Coordinate coordinate, Player currentPlayer, Player opponentPlayer) {
         boolean hit = false;
         Ship hitShip = null;
 
@@ -75,7 +75,7 @@ public class PlayerMovement {
 
         if (hit) {
             if (hitShip.getSizeOfShip() == hitShip.hitCount) {
-                for(Coordinate coordinate1: hitShip.coordinatesOfShip){
+                for (Coordinate coordinate1 : hitShip.coordinatesOfShip) {
                     updateSurroundingCells(coordinate1, currentPlayer, opponentPlayer);
                 }
             }
@@ -103,6 +103,7 @@ public class PlayerMovement {
             }
         }
     }
+
     private static boolean isGameOver(Player opponentPlayer) {
         // Логика проверки, остались ли корабли у противника
         return opponentPlayer.shipPlacement.ships.stream().allMatch(Ship::isSunk);
